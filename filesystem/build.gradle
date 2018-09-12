@@ -1,0 +1,5 @@
+dependencies {
+    compile group: 'org.jetbrains.kotlin', name: 'kotlin-reflect', version: kotlinVersion
+    compile group: 'org.apache.ant', name: 'ant', version: antVersion
+    compile group: 'org.slf4j', name: 'slf4j-simple', version: slf4jVersion
+}
