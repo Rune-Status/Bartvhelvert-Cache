@@ -93,6 +93,12 @@ fun ByteBuffer.getUnsignedSmart() = if (get(position()).toInt() and 0xFF < 128) 
     getUnsignedShort() - 32768
 }
 
+fun ByteBuffer.getLargeSmart() = if(get(position()).toInt() and 0xFF < 0) {
+    int and 0x7FFFFFFF
+} else {
+    val value = getUnsignedShort()
+    if (value == 32767) -1 else value
+}
 fun ByteBuffer.getParams(): MutableMap<Int, Any> {
     val length = getUnsignedByte()
     val params = HashMap<Int, Any>(length)
